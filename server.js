@@ -11,6 +11,7 @@ const cors = require('cors')
 const env = require('dotenv').config()
 // Require files from routes, controllers, and utilities
 const { initDatabase } = require('./data/database')
+const routes = require('./routes')
 
 // Initialize Express
 const app = express()
@@ -28,10 +29,8 @@ app.use(express.urlencoded({ extended: true }))
 /* ***********************
  * Routes
  *************************/
-// Index route
-app.get('/', (req, res) => {
-	res.send('Hello World')
-})
+// API routes - all routes under /api
+app.use('/', routes)
 
 /* ***********************
  * Local Server Information
@@ -57,7 +56,7 @@ const startServer = async () => {
 	} catch (error) {
 		console.error('❌ Failed to start server:', error)
 		process.exit(1) // Exit if database connection fails
-	}
+    }
 }
 
 // Start the application
