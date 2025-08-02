@@ -79,11 +79,15 @@ GET {{baseUrl}}/invalid-route
 GET {{baseUrl}}/games/invalid-id
 
 ###
-### 8. USERS ENDPOINT TESTS
+### 8. USERS ENDPOINT TESTS - Complete CRUD Operations
 ###
 
 # Get all users
 GET {{baseUrl}}/users
+
+###
+# Get single user by ID (replace with real ID after creating)
+GET {{baseUrl}}/users/688e812b1ef6a42ce9fc507b
 
 ###
 # Create new user
@@ -91,13 +95,31 @@ POST {{baseUrl}}/users
 Content-Type: {{contentType}}
 
 {
-  "username": "testuser",
-  "email": "test@example.com",
-  "firstName": "Test",
-  "lastName": "User",
-  "favoriteGameCategories": ["Strategy", "Party"],
-  "ownedGamesCount": 5
+  "username": "johndoe",
+  "email": "john.doe@example.com",
+  "firstName": "John",
+  "lastName": "Doe",
+  "favoriteGameCategories": ["Strategy", "Party", "Cooperative"],
+  "ownedGamesCount": 15
 }
+
+###
+# Update user
+PUT {{baseUrl}}/users/688e812b1ef6a42ce9fc507b
+Content-Type: {{contentType}}
+
+{
+  "username": "john_updated",
+  "email": "john.updated@example.com",
+  "firstName": "John",
+  "lastName": "Doe",
+  "favoriteGameCategories": ["Strategy", "Adventure"],
+  "ownedGamesCount": 20
+}
+
+###
+# Delete user
+DELETE {{baseUrl}}/users/688e81963728ce2e0f9c36f5
 
 ###
 ### 9. API PERFORMANCE TESTING
