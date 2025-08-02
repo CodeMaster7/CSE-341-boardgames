@@ -45,13 +45,13 @@ Content-Type: {{contentType}}
 ###
 ### 5. UPDATE GAME - PUT request (for when we build PUT endpoint)
 ###
-PUT {{baseUrl}}/games/507f1f77bcf86cd799439011
+PUT {{baseUrl}}/games/688dd7fabd8cb57c9fe6162c
 Content-Type: {{contentType}}
 
 {
   "title": "Updated Test Game",
   "description": "An updated test board game",
-  "minPlayers": 2,
+  "minPlayers": 1,
   "maxPlayers": 6,
   "playTime": "45-60 minutes",
   "ageRange": "10+",
@@ -65,7 +65,7 @@ Content-Type: {{contentType}}
 ###
 ### 6. DELETE GAME - DELETE request (for when we build DELETE endpoint)
 ###
-DELETE {{baseUrl}}/games/507f1f77bcf86cd799439011
+DELETE {{baseUrl}}/games/688dc638ecf73304a3b21ed5
 
 ###
 ### 7. ERROR TESTING - Test invalid endpoints
@@ -79,7 +79,7 @@ GET {{baseUrl}}/invalid-route
 GET {{baseUrl}}/games/invalid-id
 
 ###
-### 8. USERS ENDPOINT TESTS (for future development)
+### 8. USERS ENDPOINT TESTS
 ###
 
 # Get all users
