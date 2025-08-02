@@ -1,0 +1,115 @@
+###
+### Board Game Management API Tests
+### Use VS Code REST Client extension to run these tests
+###
+
+# Variables
+@baseUrl = http://localhost:3000
+@contentType = application/json
+
+###
+### 1. HEALTH CHECK - Test if server is running
+###
+GET {{baseUrl}}/
+
+###
+### 2. GET ALL GAMES - Test games endpoint
+###
+GET {{baseUrl}}/games
+
+###
+### 3. GET SINGLE GAME BY ID - Test specific game (replace with real ID after adding data)
+###
+GET {{baseUrl}}/games/688dc638ecf73304a3b21ed5
+
+###
+### 4. CREATE NEW GAME - POST request (for when we build POST endpoint)
+###
+POST {{baseUrl}}/games
+Content-Type: {{contentType}}
+
+{
+  "title": "Test Game",
+  "description": "A test board game for API testing",
+  "minPlayers": 2,
+  "maxPlayers": 4,
+  "playTime": "30-45 minutes",
+  "ageRange": "8+",
+  "difficulty": "Easy",
+  "publisher": "Test Publisher",
+  "yearPublished": 2024,
+  "category": "Strategy",
+  "price": 29.99
+}
+
+###
+### 5. UPDATE GAME - PUT request (for when we build PUT endpoint)
+###
+PUT {{baseUrl}}/games/507f1f77bcf86cd799439011
+Content-Type: {{contentType}}
+
+{
+  "title": "Updated Test Game",
+  "description": "An updated test board game",
+  "minPlayers": 2,
+  "maxPlayers": 6,
+  "playTime": "45-60 minutes",
+  "ageRange": "10+",
+  "difficulty": "Medium",
+  "publisher": "Updated Publisher",
+  "yearPublished": 2024,
+  "category": "Strategy",
+  "price": 39.99
+}
+
+###
+### 6. DELETE GAME - DELETE request (for when we build DELETE endpoint)
+###
+DELETE {{baseUrl}}/games/507f1f77bcf86cd799439011
+
+###
+### 7. ERROR TESTING - Test invalid endpoints
+###
+
+# Test 404 - Invalid route
+GET {{baseUrl}}/invalid-route
+
+###
+# Test invalid game ID
+GET {{baseUrl}}/games/invalid-id
+
+###
+### 8. USERS ENDPOINT TESTS (for future development)
+###
+
+# Get all users
+GET {{baseUrl}}/users
+
+###
+# Create new user
+POST {{baseUrl}}/users
+Content-Type: {{contentType}}
+
+{
+  "username": "testuser",
+  "email": "test@example.com",
+  "firstName": "Test",
+  "lastName": "User",
+  "favoriteGameCategories": ["Strategy", "Party"],
+  "ownedGamesCount": 5
+}
+
+###
+### 9. API PERFORMANCE TESTING
+###
+
+# Multiple quick requests to test response time
+GET {{baseUrl}}/games
+
+###
+GET {{baseUrl}}/games
+
+###
+GET {{baseUrl}}/games
+
+###
