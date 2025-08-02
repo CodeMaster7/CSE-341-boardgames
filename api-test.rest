@@ -122,7 +122,26 @@ Content-Type: {{contentType}}
 DELETE {{baseUrl}}/users/688e81963728ce2e0f9c36f5
 
 ###
-### 9. API PERFORMANCE TESTING
+### 9. AUTHENTICATION ENDPOINT TESTS (Week 04)
+###
+
+# Check authentication status
+GET {{baseUrl}}/auth
+
+###
+# Get user profile (requires login)
+GET {{baseUrl}}/auth/profile
+
+###
+# Login (Auth0 will redirect)
+GET {{baseUrl}}/login
+
+###
+# Logout (Auth0 will redirect)
+GET {{baseUrl}}/logout
+
+###
+### 10. API PERFORMANCE TESTING
 ###
 
 # Multiple quick requests to test response time
