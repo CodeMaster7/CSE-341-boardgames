@@ -8,6 +8,7 @@
 // Require packages
 const express = require('express')
 const cors = require('cors')
+const { auth } = require('express-openid-connect')
 const env = require('dotenv').config()
 // Require files from routes, controllers, and utilities
 const { initDatabase } = require('./data/database')
@@ -15,6 +16,16 @@ const routes = require('./routes')
 
 // Initialize Express
 const app = express()
+
+// Auth0 configuration
+const config = {
+	authRequired: false,
+	auth0Logout: true,
+	secret: process.env.SECRET,
+	baseURL: process.env.BASE_URL,
+	clientID: process.env.CLIENT_ID,
+	issuerBaseURL: process.env.ISSUER_BASE_URL
+}
 
 /* ***********************
  * Middleware
@@ -25,6 +36,9 @@ app.use(cors())
 app.use(express.json())
 // Parse URL-encoded request bodies
 app.use(express.urlencoded({ extended: true }))
+// Auth0 middleware
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config))
 
 /* ***********************
  * Routes
