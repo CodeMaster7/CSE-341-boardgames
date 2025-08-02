@@ -10,6 +10,7 @@ const router = express.Router()
 // Import individual route files
 const gamesRoutes = require('./games')
 const usersRoutes = require('./users')
+const authRoutes = require('./auth')
 const swaggerRoutes = require('./swagger')
 
 /* ******************************************
@@ -21,6 +22,9 @@ router.use('/games', gamesRoutes)
 
 // Users routes - all routes under /users
 router.use('/users', usersRoutes)
+
+// Auth routes - authentication endpoints
+router.use('/auth', authRoutes)
 
 // Swagger documentation routes
 router.use('/', swaggerRoutes)
