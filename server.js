@@ -51,12 +51,13 @@ const startServer = async () => {
 		app.listen(port, () => {
 			console.log(`🚀 Server running on port ${port}`)
 			console.log(`📍 Local: http://localhost:${port}`)
+			console.log(`📖 API Docs: http://localhost:${port}/api-docs`)
 			console.log(`🔧 Environment: ${process.env.NODE_ENV || 'development'}`)
 		})
 	} catch (error) {
 		console.error('❌ Failed to start server:', error)
 		process.exit(1) // Exit if database connection fails
-    }
+	}
 }
 
 // Start the application
