@@ -37,7 +37,6 @@ app.use(express.json())
 // Parse URL-encoded request bodies
 app.use(express.urlencoded({ extended: true }))
 // Auth0 middleware
-// auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config))
 
 /* ***********************
